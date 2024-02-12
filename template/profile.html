@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block css %}
+body {
+    /* Add any global body styles here */
+}
+
+.user-profile-card {
+    text-align: center; /* Center the content inside the user-profile-card */
+    margin: 50px auto;  /* Add margin to center the card itself */
+}
+
+/* Add any additional styling for the profile details here */
+.user-profile-card p {
+    margin-bottom: 10px; /* Add margin between each profile detail */
+}
+
+.user-profile-card img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px; /* Add margin below the profile picture */
+}
+
+.profile-edit-btn {
+    /* Add styling for the edit profile button if needed */
+}
+
+.profile-edit-btn {
+    background-color: #3498db; /* Button background color */
+    color: #ffffff; /* Button text color */
+    padding: 10px 20px; /* Padding around the button text */
+    font-size: 16px; /* Font size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+
+    /* Add any additional styles as needed */
+}
+
+.profile-edit-btn:hover {
+    background-color: #2980b9; /* Change background color on hover */
+}
+
+
+{% endblock css %}
+
+{% block content %}
+   <div class="user-profile-card">
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+      {% if request.user.profile %}
+    <div class="user-profile-card">
+        <br>
+        <br>
+        {% if request.user.profile.profile_picture %}
+            <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture" style="width: 200px; height: 200px; display: inline-block; vertical-align: top; margin-right: 20px;">
+        {% else %}
+            <p style="display: inline-block; vertical-align: top; margin-right: 20px;">No profile picture available</p>
+        {% endif %}
+        <div style="display: inline-block; text-align: left;">
+            <p>Email: {{ request.user.email }}</p>
+            <p>Username: {{ request.user.username }}</p>
+            <p>Bio: {{ request.user.profile.bio }}</p>
+           <button onclick="window.location.href='{% url 'edit_profile' %}';" class="profile-edit-btn">Edit Profile</button>
+
+        </div>
+    </div>
+   </div>
+{% endif %}
+{% endblock %}

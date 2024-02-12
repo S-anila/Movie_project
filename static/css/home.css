@@ -1,0 +1,94 @@
+
+            body{
+
+            }
+          .col-md-3
+          {
+          display: inline-block;
+          margin-left:-4px;
+          }
+
+          .carousel-indicators .active {
+
+            }
+
+          .col-md-3 img{
+
+          width: 170px;
+          height: 200px;
+          }
+
+          body .carousel-indicator li{
+
+          }
+
+          body .carousel-indicators{
+          bottom: 0;
+          }
+
+          body .carousel-control-prev-icon,
+          body .carousel-control-next-icon{
+
+          }
+
+          .carousel-control-prev,
+          .carousel-control-next{
+          top: auto;
+          bottom: auto;
+          padding-top: 222px;
+          }
+        body .no-padding{
+           padding-left: 0,
+           padding-right: 0;
+           }
+
+        .wrapper{
+
+        margin-bottom:200px;
+        }
+
+.h1 {
+    text-align: center;
+}
+
+.card {
+    margin: 3% auto;
+    max-width: 300px; /* Reduced box size */
+    max-height:auto;
+    border-radius: 0.5rem;
+    background: #fff;
+    padding: 15px; /* Reduced padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color:black;
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+/* Add space between recommended movie images */
+.container.wrapper .row .col-4 {
+    margin-bottom: 20px; /* Adjust the value as needed for the desired spacing */
+}
+
+/* Add space between carousel movie images */
+.container.wrapper .carousel-inner .col-xs-3 {
+    margin-bottom: 20px; /* Adjust the value as needed for the desired spacing */
+}
+
+/* For recommended movies section */
+.row .col-4 img {
+    max-height: 200px; /* Set your desired height */
+    width: 100%;
+}
+
+/* For carousel section */
+.row .col-xs-3 img {
+    max-height: 250px; /* Set your desired height */
+    width: 100%;
+}
+.custom-text {
+  color: #ffffff; /* or your desired text color */
+}
+
+

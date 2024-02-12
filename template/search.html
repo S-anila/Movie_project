@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    We have a variety of movies ...
+{% endblock %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block css %}
+.card {
+    margin: 3% auto;
+    max-width: 300px; /* Fixed box size */
+    max-height: 550px;
+    border-radius: 0.5rem;
+    background: #fff;
+    padding: 15px; /* Adjust padding as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.my_image {
+    max-height: 200px; /* Set your desired height */
+    max-width: 100%; /* Adjust to increase width while maintaining aspect ratio */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.my_description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <p class="text-center my_search_text">You Have Searched for: <b>"{{ query }}"</b></p>
+</div>
+<div class="container">
+    <div class="row mx_auto">
+        {% for movie in movies %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4">
+            <div class="card text-center">
+                <a href="{{ movie.get_absolute_url }}">
+                    <img class="card-img-top my_image" src="{{ movie.image.url }}" alt="{{ movie.title }}">
+                </a>
+                <div class="card-body">
+                    <h4>{{ movie.title }}</h4>
+                    <p>{{ movie.genres }}</p>
+                    <p class="my_description">About: {{ movie.description|slice:":80" }}</p>
+                    <p>Actors: {{ movie.actors }}</p>
+                    <a href="{{ movie.trailer }}" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-play-circle"></i> Watch Now
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row mx_auto">
+            <p class="text-center my_search_text">0 results found</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

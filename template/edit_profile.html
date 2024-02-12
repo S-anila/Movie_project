@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}edit_profile{% endblock title %}
+{% block css %}
+body {
+
+}
+.user-profile-card {
+    margin: 3% auto;
+    max-width: 600px;
+    border-radius: 0.5rem;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #333; /* Dark color */
+    color: white; /* Text color */
+}
+
+/* ... (rest of your styles) ... */
+
+button[type="submit"] {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Darker Green */
+}
+{% endblock css %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+    <div class="user-profile-card">
+        <h1>Edit Profile</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

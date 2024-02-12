@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+    <h2>Welcome, {{ user.username }}!</h2>
+
+    {% if user_input %}
+        <h3>Your Watched Movies:</h3>
+        <ul>
+            {% for movie in user_input %}
+                <li>{{ movie.title }} - Rating: {{ movie.rating }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if recommenderQuery %}
+        <h3>Recommended Movies:</h3>
+        <ul>
+            {% for movie in recommenderQuery %}
+                <li>{{ movie.title }} - {{ movie.genres }} - {{ movie.description }}</li>
+                <!-- Add other movie details as needed -->
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations available at the moment.</p>
+    {% endif %}
+{% else %}
+    <p>Please log in to get movie recommendations.</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ movie.title }} - movie
+{% endblock %}
+
+{% block css %}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.col-lg-6 {
+    flex: 0 0 48%; /* Adjust the width as needed */
+    margin-bottom: 20px; /* Add margin between the columns */
+}
+
+/* Add some space between the image and details */
+.col-lg-6 > div {
+    margin-left: 20px; /* Adjust the value for desired spacing */
+}
+
+/* Add styling for movie details */
+.my_prod-tittle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.my_tittle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.my_prod_text {
+    text-align: justify;
+}
+
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container my_prod-row_class">
+    <div class="row mx-auto">
+        <p>
+            <a href="{{ movie.genres.get_url }}">{{ movie.genres }}</a> | {{ movie.title }}
+        </p>
+    </div>
+</div>
+
+<div class="container my_prod-container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="my_prod-image">
+                <img src="{{ movie.image.url }}" alt="{{ movie.name }}" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div>
+                <h1 class="my_prod-tittle">{{ movie.title }}</h1>
+                <p class="my_tittle">About the movie:</p>
+                <p class="text-justify my_prod_text">{{ movie.description }}</p>
+                <p class="my_tittle">Actors:</p>
+                <p class="text-justify my_prod_text">{{ movie.actors }}</p>
+                <p class="my_tittle">Release Date:</p>
+                <p class="text-justify my_prod_text">{{ movie.year }}</p>
+                <a href="{{ movie.trailer }}" target="_blank" class="btn btn-primary"><i class="fas fa-play-circle"></i> Watch Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
