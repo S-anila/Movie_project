@@ -182,7 +182,8 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')  # Redirect to the home page after successful signup
+            messages.success(request, ' Registered Successfully!!Now you can Login ')
+            return redirect('/signup/')
     else:
         form = SignUpForm()
 
